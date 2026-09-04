@@ -1,0 +1,1 @@
+This is a empty backend application to run the todo application
