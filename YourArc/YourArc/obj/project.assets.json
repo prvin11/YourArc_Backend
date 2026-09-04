@@ -2590,11 +2590,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "K:\\First Project\\YourArc\\YourArc\\YourArc.csproj",
+      "projectUniqueName": "K:\\First Project\\YourArc_Backend\\YourArc\\YourArc\\YourArc.csproj",
       "projectName": "YourArc",
-      "projectPath": "K:\\First Project\\YourArc\\YourArc\\YourArc.csproj",
+      "projectPath": "K:\\First Project\\YourArc_Backend\\YourArc\\YourArc\\YourArc.csproj",
       "packagesPath": "C:\\Users\\preto\\.nuget\\packages\\",
-      "outputPath": "K:\\First Project\\YourArc\\YourArc\\obj\\",
+      "outputPath": "K:\\First Project\\YourArc_Backend\\YourArc\\YourArc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\preto\\AppData\\Roaming\\NuGet\\NuGet.Config"

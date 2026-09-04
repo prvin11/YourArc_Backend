@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cIaCEoImdWM=",
+  "dgSpecHash": "3BnXLKRjLdk=",
   "success": true,
-  "projectFilePath": "K:\\First Project\\YourArc\\YourArc\\YourArc.csproj",
+  "projectFilePath": "K:\\First Project\\YourArc_Backend\\YourArc\\YourArc\\YourArc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\preto\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\preto\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.11\\microsoft.aspnetcore.authentication.jwtbearer.10.0.11.nupkg.sha512",
@@ -47,9 +47,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
-      "projectPath": "K:\\First Project\\YourArc\\YourArc\\YourArc.csproj",
+      "projectPath": "K:\\First Project\\YourArc_Backend\\YourArc\\YourArc\\YourArc.csproj",
       "warningLevel": 1,
-      "filePath": "K:\\First Project\\YourArc\\YourArc\\YourArc.csproj",
+      "filePath": "K:\\First Project\\YourArc_Backend\\YourArc\\YourArc\\YourArc.csproj",
       "libraryId": "Microsoft.OpenApi",
       "targetGraphs": [
         "net10.0"
