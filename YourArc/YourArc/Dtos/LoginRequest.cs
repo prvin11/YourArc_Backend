@@ -1,13 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace YourArc.Dtos;
 
 public class LoginRequest
 {
-    [Required]
-    [EmailAddress]
+    [Required(ErrorMessage = "Email is required")]
+    [EmailAddress(ErrorMessage = "Invalid email address")]
     public string Email { get; set; } = string.Empty;
 
-    [Required]
+    [Required(ErrorMessage = "Password is required")]
     public string Password { get; set; } = string.Empty;
 }
+

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YourArc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f70fa74997b38aad330c4e3ba6b82c8607ae010a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94682f3cfcf3cab290a48cd069e8d501e0acff7a")]
 [assembly: System.Reflection.AssemblyProductAttribute("YourArc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YourArc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

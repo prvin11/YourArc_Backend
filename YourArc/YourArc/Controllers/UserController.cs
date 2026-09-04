@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using YourArc.Data;
@@ -18,9 +18,19 @@ public class UserController(
     [HttpPost("register")]
     public async Task<IActionResult> CreateUser([FromBody] RegisterRequest registerUser)
     {
-        var existingUser = await db.Users.FirstOrDefaultAsync(x => x.Email == registerUser.Email);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
 
-        if (existingUser != null)
+        var normalizedEmail = registerUser.Email.Trim().ToLowerInvariant();
+        var normalizedName = registerUser.Name.Trim();
+
+        var emailExists = await db.Users
+            .AsNoTracking()
+            .AnyAsync(x => x.Email == normalizedEmail);
+
+        if (emailExists)
         {
             return BadRequest(new
             {
@@ -30,8 +40,8 @@ public class UserController(
 
         var user = new User
         {
-            Name = registerUser.Name,
-            Email = registerUser.Email
+            Name = normalizedName,
+            Email = normalizedEmail
         };
 
         user.PasswordHash = passwordHasher.HashPassword(
@@ -39,12 +49,25 @@ public class UserController(
             registerUser.Password
         );
 
-        db.Users.Add(user);
-        await db.SaveChangesAsync();
+        try
+        {
+            db.Users.Add(user);
+            await db.SaveChangesAsync();
+        }
+        catch (DbUpdateException)
+        {
+            return BadRequest(new
+            {
+                message = "Email already registered"
+            });
+        }
+
+        var token = tokenService.GenerateToken(user);
 
         return Ok(new
         {
             message = "Registration successful",
+            token,
             user = new
             {
                 id = user.Id,
@@ -57,7 +80,16 @@ public class UserController(
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
     {
-        var user = await db.Users.FirstOrDefaultAsync(x => x.Email == loginRequest.Email);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var normalizedEmail = loginRequest.Email.Trim().ToLowerInvariant();
+
+        var user = await db.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Email == normalizedEmail);
 
         if (user == null)
         {
@@ -96,3 +128,4 @@ public class UserController(
         });
     }
 }
+

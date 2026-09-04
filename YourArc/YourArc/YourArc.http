@@ -1,6 +1,29 @@
 @YourArc_HostAddress = http://localhost:5103
 
-GET {{YourArc_HostAddress}}/weatherforecast/
+### Health Check (Render keep-alive)
+GET {{YourArc_HostAddress}}/health
 Accept: application/json
 
-###
+### Root
+GET {{YourArc_HostAddress}}/
+Accept: application/json
+
+### Register User
+POST {{YourArc_HostAddress}}/api/user/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "password": "Password123!"
+}
+
+### Login User
+POST {{YourArc_HostAddress}}/api/user/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "Password123!"
+}
+
